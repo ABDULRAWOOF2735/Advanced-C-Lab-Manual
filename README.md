@@ -1,1 +1,317 @@
-# Advanced-C-Lab-Manual
+## EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE PERSON TO VOTE.
+
+### Aim:
+To write a C program for array of structure to check eligibility for the person to vote.
+
+### Algorithm:
+1.	Declare structure eligible with age (integer) and n (character array)
+2.	Declare variable e of type eligible
+3.	Input age and name using scanf, store in e
+4.	If age>18
+-	Print "eligibility: YES"
+Else
+-	Print "Eligibility: NO"
+5.	Print details (z.age,z.name)
+6.	Return 0
+ 
+### Program:
+```C
+#include <stdio.h>
+  #include<string.h>
+   struct vote
+   {
+       int age;
+       char name[20];
+       int no_of_present;
+       char eligibilty[5];
+   };
+   int main()
+   { 
+       struct vote z;
+   scanf("%d%s",&z.age,z.name);
+   if(z.age>18)
+   strcpy(z.eligibilty,"yes");
+   else
+   strcpy(z.eligibilty,"no");
+   printf("Age:%d\nName:%s\n",z.age,z.name);
+   printf("Age:%d\neligibility:%s",z.age,z.eligibilty);
+   return 0;
+   }
+```
+### Output:
+<img width="610" height="394" alt="image" src="https://github.com/user-attachments/assets/db24cdfa-1a0b-4db1-821c-f6845cda633b" />
+
+
+### Result:
+Thus, the program is verified successfully. 
+
+
+
+## EXP NO:2 C PROGRAM FOR PASSING STRUCTURES TO A FUNCTION
+Aim:
+To write a C program for passing Structure to a Function.
+
+### Algorithm:
+1.Declare a structure Complex with two float members:
+real,imag
+
+2.Define a function addComplex(c1, c2) that:
+
+a. Creates a result variable of type Complex
+
+b. Adds the real parts:
+
+result.real = c1.real + c2.real
+
+c. Adds the imaginary parts:
+
+result.imag = c2.imag + c1.imag
+
+3.Call the function addComplex(num1, num2) and store the result in sum.
+
+4.Display the result in the format:
+
+"Sum = <real> + <imag>i"
+
+5.End
+### Program:
+```C
+#include <stdio.h>
+struct Complex 
+{
+    float real;
+    float imag;
+};
+struct Complex addComplex(struct Complex c1, struct Complex c2)
+{
+    struct Complex result;
+    result.real = c1.real + c2.real;
+    result.imag = c1.imag + c2.imag;
+    return result;
+}
+
+int main() 
+{
+    struct Complex num1, num2, sum;
+    scanf("%f", &num1.real);
+    scanf("%f", &num1.imag);
+    scanf("%f", &num2.real);
+    scanf("%f", &num2.imag);
+    sum = addComplex(num1, num2);
+    printf("Sum = %.1f + %.1fi\n", sum.real, sum.imag);
+
+    return 0;
+}
+```
+
+
+### Output:
+
+<img width="1256" height="397" alt="image" src="https://github.com/user-attachments/assets/84c584af-2f17-4e75-998e-ec97b54076d3" />
+
+
+### Result:
+Thus, the program is verified successfully
+
+
+ 
+## EXP.NO:3 C PROGRAM TO READ A FILE NAME FROM USER AND WRITE THAT FILE USING FOPEN()
+
+### Aim:
+To write a C program to read a file name from user
+
+### Algorithm:
+1.	Include the necessary header file stdio.h.
+2.	Begin the main function.
+3.	Declare a file pointer p.
+Declare a character array name to store the file name.
+4.	Prompt the user to enter a file name.
+Use scanf to input the file name into the name array.
+5.	Print a message indicating that the file with the specified name has been created successfully.
+6.	Use fopen to open a file with the name provided by the user in write mode ("w").
+-	If successful, continue to the next step.
+-	If unsuccessful, print an error message and exit the program with a non-zero status.
+1.	Print a message indicating that the file has been opened successfully.
+2.	Use fclose to close the file.
+3.	Print a message indicating that the file has been closed.
+4.	End the main function.
+5.	Return 0 to indicate successful program execution.
+ 
+### Program:
+
+```C
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+    char d[100];
+    scanf("%s",d);
+    FILE *fp;
+    fp=fopen("d","w");
+    if(fp==NULL)
+    {
+        printf("Error");
+    }
+    printf("%s File Created Successfully\n",d);
+    printf("%s File Opened\n",d);
+    fclose(fp);
+    printf("%s File Closed",d);
+}
+```
+
+
+
+### Output:
+
+
+<img width="1257" height="439" alt="image" src="https://github.com/user-attachments/assets/cf059b47-f61c-4a60-bc8e-fd83caf0fe74" />
+
+
+
+### Result:
+Thus, the program is verified successfully
+ 
+
+
+## EXP NO:4   PROGRAM TO READ A FILE NAME FROM USER, WRITE THAT FILE AND INSERT TEXT IN TO THAT FILE
+### Aim:
+To write a C program to read, a file and insert text in that file
+### Algorithm:
+1.	Include the necessary header file stdio.h.
+2.	Begin the main function.
+3.	Declare a file pointer p.
+Declare character arrays name and text. Declare an integer variable num.
+4.	Prompt the user to enter a file name and the number of strings.
+Use scanf to input the file name into the name array and the number of strings into the num variable.
+5.	Use fopen to open a file with the name provided by the user in write mode ("w").
+-	If successful, continue to the next step.
+-	If unsuccessful, print an error message and exit the program with a non-zero status.
+6.	Print a message indicating that the file has been opened successfully.
+1.	Use a loop to input strings from the user and write them to the file using fputs.
+2.	Use fclose to close the file.
+3.	Print a message indicating that data has been added successfully.
+4.	End the main function.
+5.	Return 0 to indicate successful program execution.
+ 
+### Program:
+```C
+#include <stdio.h>
+int main()
+{
+char filename[100];
+int n,i;
+char ch[100];
+scanf("%s %d",filename,&n);
+FILE *fp;
+fp=fopen("filename","w");
+if(fp==NULL)
+{
+    printf("ERROR");
+}
+else
+{
+    printf("%s Opened\n",filename);
+for(i=0;i<n;i++)
+{
+    scanf("%s",ch);
+}
+printf("Data added Successfully");
+}
+fclose(fp);
+}
+```
+
+
+
+### Output:
+
+<img width="1237" height="430" alt="image" src="https://github.com/user-attachments/assets/6b6df7fa-74b2-4724-b188-141e4656c02b" />
+
+
+
+
+
+### Result:
+Thus, the program is verified successfully
+
+
+
+## Ex No 5 : C PROGRAM TO DISPLAY STUDENT DETAILS USING STRUCTURE
+
+### Aim:
+The aim of this program is to dynamically allocate memory to store information about multiple subjects (name and marks), input the details for each subject, and then display the stored information. Finally, it frees the allocated memory to prevent memory leaks.
+
+### Algorithm:
+1.Input the number of subjects.
+
+2.Read the integer value n from the user, which represents the number of subjects.
+
+3.Dynamically allocate memory:
+
+4.Use malloc to allocate memory for n subjects. Each subject has a name (array of characters) and marks (integer).
+
+5.If memory allocation fails (i.e., the pointer s is NULL), display an error message and exit the program.
+
+6.Input the details of each subject
+
+7.Use a for loop to read the name and marks of each subject using scanf. For each subject, store the name as a string and marks as an integer in the dynamically allocated memory.
+
+8.Display the details of each subject
+
+9.Use another for loop to print the name and marks of each subject.
+
+10.Free the allocated memory
+
+11.After all operations are done, call free(s) to release the dynamically allocated memory.
+
+12.Return from the main function
+
+13.End the program by returning 0.
+
+### Program:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+struct Subject
+{
+    char name[20];
+    int marks;
+};
+int main()
+{
+    int i,n;
+    scanf("%d",&n);
+    struct Subject *s = (struct Subject *)malloc(n*sizeof(struct Subject));
+    if(s==NULL)
+    {
+        printf("Memory Alocation Failed\n");
+        return 1;
+    }
+    for(i=0;i<n;i++)
+    {
+        scanf("%s %d",s[i].name,&s[i].marks);
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("%s  %d\n",s[i].name,s[i].marks);
+    }
+    free (s);
+    return 0;
+}
+```
+
+
+
+
+### Output:
+
+
+<img width="1241" height="403" alt="image" src="https://github.com/user-attachments/assets/f0f051e9-1174-4c3a-b745-719490486ccd" />
+
+
+
+
+
+Result:
+Thus, the program is verified successfully
